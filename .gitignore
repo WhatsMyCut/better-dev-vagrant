@@ -1,0 +1,6 @@
+.vscode/
+.vagrant/
+repos/*
+!scripts/*.sh
+*.tar*
+jdk-*
