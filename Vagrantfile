@@ -17,13 +17,13 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.10.14"
+  config.vm.network "private_network", ip: "192.168.10.15"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within theß machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # api
-  config.vm.network :forwarded_port, guest: 80, host: 8080
+  # config.vm.network :forwarded_port, guest: 80, host: 8080
   # web properties
   config.vm.network :forwarded_port, guest: 3000, host: 3000
   config.vm.network :forwarded_port, guest: 4000, host: 4000
@@ -57,7 +57,7 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "~/.ssh", "/home/vagrant/.ssh"
 
   config.vm.synced_folder "./repos/", "/home/vagrant/", type: "rsync",
-  rsync__args: ["--include=.bashrc --include=.bash_profile"]
+  rsync__args: ["--include=`.bashrc` --include=`.bash_profile`"]
 
   #config.vm.synced_folder "./api", "/vagrant/api", type: "rsync"
 
